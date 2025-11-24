@@ -19,22 +19,6 @@ class PaginatedResponse<T> {
     required this.meta,
   });
 
-  factory PaginatedResponse.fromJson(Map<String, dynamic> json) {
-    return PaginatedResponse(
-      currentPage: json['current_page'],
-      data:
-          (json['data'] as List<dynamic>)
-              .map((item) => UserData.fromJson(item))
-              .toList(),
-      from: json['from'],
-      lastPage: json['last_page'],
-      perPage: json['per_page'],
-      to: json['to'],
-      total: json['total'],
-      meta: MetaData.fromJson(json['meta']),
-    );
-  }
-
   Map<String, dynamic> toJson() {
     return {
       'current_page': currentPage,
@@ -56,14 +40,6 @@ class UserData {
 
   UserData({required this.id, required this.name, required this.gates});
 
-  factory UserData.fromJson(Map<String, dynamic> json) {
-    return UserData(
-      id: json['id'],
-      name: json['name'],
-      gates: Gates.fromJson(json['gates']),
-    );
-  }
-
   Map<String, dynamic> toJson() {
     return {'id': id, 'name': name, 'gates': gates.toJson()};
   }
@@ -84,16 +60,6 @@ class Gates {
     required this.authorizedToForceDelete,
   });
 
-  factory Gates.fromJson(Map<String, dynamic> json) {
-    return Gates(
-      authorizedToView: json['authorized_to_view'],
-      authorizedToUpdate: json['authorized_to_update'],
-      authorizedToDelete: json['authorized_to_delete'],
-      authorizedToRestore: json['authorized_to_restore'],
-      authorizedToForceDelete: json['authorized_to_force_delete'],
-    );
-  }
-
   Map<String, dynamic> toJson() {
     return {
       'authorized_to_view': authorizedToView,
@@ -110,10 +76,6 @@ class MetaData {
 
   MetaData({required this.gates});
 
-  factory MetaData.fromJson(Map<String, dynamic> json) {
-    return MetaData(gates: MetaGates.fromJson(json['gates']));
-  }
-
   Map<String, dynamic> toJson() {
     return {'gates': gates.toJson()};
   }
@@ -123,10 +85,6 @@ class MetaGates {
   final bool authorizedToCreate;
 
   MetaGates({required this.authorizedToCreate});
-
-  factory MetaGates.fromJson(Map<String, dynamic> json) {
-    return MetaGates(authorizedToCreate: json['authorized_to_create']);
-  }
 
   Map<String, dynamic> toJson() {
     return {'authorized_to_create': authorizedToCreate};

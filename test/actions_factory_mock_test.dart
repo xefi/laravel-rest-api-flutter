@@ -5,11 +5,10 @@ import 'package:laravel_rest_api_flutter/data/core/rest_api_factories/laravel_re
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
 
-import 'mock/item_model.dart';
 import 'mock/mock_http_client.dart';
 import 'mock/mock_http_client.mocks.dart';
 
-class ItemRepository with ActionsFactory<ItemModel> {
+class ItemRepository with ActionsFactory {
   MockDio mockDio;
   ItemRepository(this.mockDio);
 
@@ -18,9 +17,6 @@ class ItemRepository with ActionsFactory<ItemModel> {
 
   @override
   RestApiClient get httpClient => MockApiHttpClient(dio: mockDio);
-
-  @override
-  ItemModel fromJson(Map<String, dynamic> item) => ItemModel.fromJson(item);
 }
 
 void main() {

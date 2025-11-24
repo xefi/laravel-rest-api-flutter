@@ -3,15 +3,12 @@ import 'package:laravel_rest_api_flutter/data/core/models/laravel_rest_api/body/
 import '../../rest_api_repository.dart';
 
 /// A mixin to simplify building search requests for Laravel Rest API.
-mixin ActionsFactory<T> {
+mixin ActionsFactory {
   /// The base route for the resource (e.g., '/posts').
   String get baseRoute;
 
   /// The HTTP client used to send requests. Typically a Dio instance.
   RestApiClient get httpClient;
-
-  /// Converts a JSON response into an instance of type `T`.
-  T fromJson(Map<String, dynamic> json);
 
   Future<RestApiResponse<int>> actions({
     required LaravelRestApiActionsBody data,

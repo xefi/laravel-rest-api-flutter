@@ -9,7 +9,7 @@ import 'mock/item_model.dart';
 import 'mock/mock_http_client.dart';
 import 'mock/mock_http_client.mocks.dart';
 
-class ItemRepository with MutateFactory<ItemModel> {
+class ItemRepository with MutateFactory {
   MockDio mockDio;
   ItemRepository(this.mockDio);
 
@@ -18,9 +18,6 @@ class ItemRepository with MutateFactory<ItemModel> {
 
   @override
   RestApiClient get httpClient => MockApiHttpClient(dio: mockDio);
-
-  @override
-  ItemModel fromJson(Map<String, dynamic> item) => ItemModel.fromJson(item);
 }
 
 void main() {
