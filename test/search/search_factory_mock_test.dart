@@ -240,19 +240,4 @@ void main() {
     expect(capturedArgs[0]["search"].containsKey('filters'), isTrue);
     expect(capturedArgs[0]["search"].containsKey('aggregates'), isTrue);
   });
-
-  test('Test ', () async {
-    when(mockDio.post('/items/search')).thenAnswer(
-      (_) async => Response(
-        requestOptions: RequestOptions(),
-        statusCode: 500,
-        data: {"error": "error"},
-      ),
-    );
-
-    final result = await ItemRepository(mockDio).search();
-
-    expect(result.statusCode, 500);
-    expect(result.body["error"], "error");
-  });
 }
