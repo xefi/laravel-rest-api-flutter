@@ -79,7 +79,7 @@ class Filter {
     return {
       if (field != null) 'field': field,
       if (operator != null) 'operator': operator,
-      if (value != null) 'value': value,
+      'value': value,
       if (type != null) 'type': type,
       if (nested != null) 'nested': nested!.map((e) => e.toJson()).toList(),
     };
@@ -114,7 +114,13 @@ class Include {
   final List<Select>? selects;
   final int? limit;
 
-  Include({required this.relation, this.includes, this.filters,  this.selects, this.limit});
+  Include({
+    required this.relation,
+    this.includes,
+    this.filters,
+    this.selects,
+    this.limit,
+  });
 
   Map<String, dynamic> toJson() {
     return {
