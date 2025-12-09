@@ -112,6 +112,7 @@ class Include {
   final List<Include>? includes;
   final List<Filter>? filters;
   final List<Select>? selects;
+  final List<Scope>? scopes;
   final int? limit;
 
   Include({
@@ -119,6 +120,7 @@ class Include {
     this.includes,
     this.filters,
     this.selects,
+    this.scopes,
     this.limit,
   });
 
@@ -129,6 +131,7 @@ class Include {
         'includes': includes!.map((e) => e.toJson()).toList(),
       if (filters != null) 'filters': filters!.map((e) => e.toJson()).toList(),
       if (selects != null) 'selects': selects!.map((e) => e.toJson()).toList(),
+      if (scopes != null) 'scopes': scopes!.map((e) => e.toJson()).toList(),
       if (limit != null) 'limit': limit,
     };
   }
