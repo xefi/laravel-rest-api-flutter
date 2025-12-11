@@ -25,10 +25,9 @@ mixin DeleteFactory<T> {
         body: {"resources": resourceIds},
       );
 
-      final items =
-          (response.body?['data'] as List<dynamic>)
-              .map<T>((item) => fromJson(item))
-              .toList();
+      final items = (response.body?['data'] as List<dynamic>)
+          .map<T>((item) => fromJson(item))
+          .toList();
       return RestApiResponse<List<T>>(
         statusCode: response.statusCode,
         body: response.body,

@@ -1,10 +1,10 @@
 name: laravel_rest_api_flutter
-description: A package to interact with a Laravel REST API
-version: 0.0.1
+description: A generic Dart/Flutter wrapper to consume Laravel REST APIs - search, mutate, delete and trigger backend actions
+version: 0.1.1
 homepage: https://github.com/xefi/laravel-rest-api-flutter
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.10.0
   flutter: ">=1.17.0"
 
 dependencies:

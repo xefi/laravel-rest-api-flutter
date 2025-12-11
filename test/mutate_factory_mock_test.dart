@@ -117,17 +117,16 @@ void main() {
     test('Mutation update existing item without relation', () async {
       final ItemModel item = ItemModel(id: 1, name: "new item name !");
 
-      final result =
-          LaravelRestApiMutateBody(
-            mutate: [
-              Mutation(
-                key: item.id,
-                withoutDetaching: true,
-                operation: MutationOperation.update,
-                attributes: item.toJson(),
-              ),
-            ],
-          ).toJson();
+      final result = LaravelRestApiMutateBody(
+        mutate: [
+          Mutation(
+            key: item.id,
+            withoutDetaching: true,
+            operation: MutationOperation.update,
+            attributes: item.toJson(),
+          ),
+        ],
+      ).toJson();
 
       final mutateMap = result['mutate'].first;
       expect(mutateMap['key'], item.id);
@@ -145,34 +144,33 @@ void main() {
         final ItemModel pivotItem = ItemModel(id: 3, name: "pivot");
         final ItemModel secondChildItem = ItemModel(id: 4, name: "secondchild");
 
-        final result =
-            LaravelRestApiMutateBody(
-              mutate: [
-                Mutation(
+        final result = LaravelRestApiMutateBody(
+          mutate: [
+            Mutation(
+              withoutDetaching: false,
+              operation: MutationOperation.create,
+              attributes: item.toJson(),
+              relations: [
+                MutationRelation(
+                  table: 'item',
+                  key: childItem.id,
                   withoutDetaching: false,
-                  operation: MutationOperation.create,
-                  attributes: item.toJson(),
-                  relations: [
-                    MutationRelation(
-                      table: 'item',
-                      key: childItem.id,
-                      withoutDetaching: false,
-                      pivot: pivotItem.toJson(),
-                      attributes: childItem.toJson(),
-                      relationType: RelationType.singleRelation,
-                      operation: MutationRelationOperation.toggle,
-                    ),
-                    MutationRelation(
-                      table: 'item2',
-                      key: secondChildItem.id,
-                      attributes: secondChildItem.toJson(),
-                      relationType: RelationType.multipleRelation,
-                      operation: MutationRelationOperation.sync,
-                    ),
-                  ],
+                  pivot: pivotItem.toJson(),
+                  attributes: childItem.toJson(),
+                  relationType: RelationType.singleRelation,
+                  operation: MutationRelationOperation.toggle,
+                ),
+                MutationRelation(
+                  table: 'item2',
+                  key: secondChildItem.id,
+                  attributes: secondChildItem.toJson(),
+                  relationType: RelationType.multipleRelation,
+                  operation: MutationRelationOperation.sync,
                 ),
               ],
-            ).toJson();
+            ),
+          ],
+        ).toJson();
 
         final mutateMap = result['mutate'].first;
         expect(mutateMap['without_detaching'], false);

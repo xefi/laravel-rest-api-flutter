@@ -191,10 +191,9 @@ void main() {
     );
 
     // Check body send to api
-    final capturedArgs =
-        verify(
-          mockDio.post('/items/search', data: captureAnyNamed('data')),
-        ).captured;
+    final capturedArgs = verify(
+      mockDio.post('/items/search', data: captureAnyNamed('data')),
+    ).captured;
 
     expect(capturedArgs[0].containsKey('search'), isTrue);
     expect(capturedArgs[0]["search"].containsKey('text'), isTrue);
@@ -231,10 +230,9 @@ void main() {
     );
 
     // Check body send to api
-    final capturedArgs =
-        verify(
-          mockDio.post('/items/search', data: captureAnyNamed('data')),
-        ).captured;
+    final capturedArgs = verify(
+      mockDio.post('/items/search', data: captureAnyNamed('data')),
+    ).captured;
 
     expect(capturedArgs[0].containsKey('search'), isTrue);
     expect(capturedArgs[0]["search"].containsKey('filters'), isTrue);
