@@ -79,7 +79,7 @@ class Filter {
     return {
       if (field != null) 'field': field,
       if (operator != null) 'operator': operator,
-      if (value != null) 'value': value,
+      'value': value,
       if (type != null) 'type': type,
       if (nested != null) 'nested': nested!.map((e) => e.toJson()).toList(),
     };

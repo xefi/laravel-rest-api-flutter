@@ -5,9 +5,9 @@ import 'package:laravel_rest_api_flutter/data/core/rest_api_factories/laravel_re
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
 
-import 'mock/item_model.dart';
-import 'mock/mock_http_client.dart';
-import 'mock/mock_http_client.mocks.dart';
+import '../mock/item_model.dart';
+import '../mock/mock_http_client.dart';
+import '../mock/mock_http_client.mocks.dart';
 
 class ItemRepository with SearchFactory<ItemModel> {
   MockDio mockDio;
