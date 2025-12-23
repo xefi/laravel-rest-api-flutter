@@ -33,11 +33,12 @@ class ApiHttpClient implements RestApiClient {
     Map<String, String>? headers,
     Map<String, String>? queryParams,
     Object? body,
+    String? contentType,
   }) async {
     try {
       final response = await dio.post(
         "${dio.options.baseUrl}$url",
-        options: Options(headers: headers),
+        options: Options(headers: headers, contentType: contentType),
         queryParameters: queryParams,
         data: body,
       );

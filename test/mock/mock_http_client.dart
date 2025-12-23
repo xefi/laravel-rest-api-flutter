@@ -35,9 +35,14 @@ class MockApiHttpClient implements RestApiClient {
     Map<String, String>? headers,
     Map<String, String>? queryParams,
     Object? body,
+    String? contentType,
   }) async {
     try {
-      final response = await dio.post(url, data: body);
+      final response = await dio.post(
+        url,
+        data: body,
+        options: Options(contentType: contentType),
+      );
       return RestApiResponse(
         statusCode: response.statusCode ?? 500,
         body: response.data,

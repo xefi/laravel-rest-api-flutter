@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:laravel_rest_api_flutter/data/core/http_client/rest_api_http_client.dart';
 import 'package:laravel_rest_api_flutter/data/core/models/laravel_rest_api/body/laravel_rest_api_mutate_body.dart';
 import 'package:laravel_rest_api_flutter/data/core/models/laravel_rest_api/response/laravel_rest_api_mutate_reponse.dart';
@@ -15,13 +16,33 @@ mixin MutateFactory {
     required LaravelRestApiMutateBody body,
     Map<String, String>? headers,
   }) async {
-    // Sending the request using a REST API client.
+    return _mutateInternal(body: body.toJson(), headers: headers);
+  }
+
+  /// Multipart mutate (files upload)
+  Future<RestApiResponse<LaravelRestApiMutateResponse>> mutateMultipart({
+    required FormData formData,
+    Map<String, String>? headers,
+  }) async {
+    return _mutateInternal(
+      body: formData,
+      headers: headers,
+      contentType: 'multipart/form-data',
+    );
+  }
+
+  Future<RestApiResponse<LaravelRestApiMutateResponse>> _mutateInternal({
+    required Object body,
+    Map<String, String>? headers,
+    String? contentType,
+  }) async {
     final response = await handlingResponse(
       '$baseRoute/mutate',
       headers: headers,
       apiMethod: ApiMethod.post,
       client: httpClient,
-      body: body.toJson(),
+      body: body,
+      contentType: contentType,
     );
 
     if (response.body is Map &&

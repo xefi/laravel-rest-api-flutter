@@ -9,6 +9,7 @@ abstract class RestApiClient {
     Map<String, String>? headers,
     Map<String, String>? queryParams,
     Object? body,
+    String? contentType,
   });
   Future<RestApiResponse> delete(
     String url, {

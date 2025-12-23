@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.2.1
+
+### Added
+
+- Added multipart support for `MutateFactory` to allow file uploads using `FormData`
+- New `mutateMultipart()` method for sending files alongside mutate payloads
+- Forwarded `contentType` through the HTTP client to support `multipart/form-data`
+
+### Improved
+
+- Mutate endpoint now supports advanced use cases such as media uploads
+- Better alignment with Laravel Rest API custom mutate hooks
+
+### Backward Compatibility
+
+- No breaking changes
+- Existing JSON-based `mutate()` calls continue to work unchanged
+
 ## 0.2.0
 
 ### Added
