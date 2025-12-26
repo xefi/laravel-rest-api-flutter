@@ -213,10 +213,10 @@ class Instruction {
 }
 
 class InstructionField {
-  final String field;
+  final String name;
   final dynamic value;
 
-  const InstructionField({required this.field, required this.value});
+  const InstructionField({required this.name, required this.value});
 
-  Map<String, dynamic> toJson() => {'field': field, 'value': value};
+  Map<String, dynamic> toJson() => {'name': name, 'value': value};
 }

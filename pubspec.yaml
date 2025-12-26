@@ -1,6 +1,6 @@
 name: laravel_rest_api_flutter
 description: A generic Dart/Flutter wrapper to consume Laravel REST APIs - search, mutate, delete and trigger backend actions
-version: 0.2.1
+version: 0.2.2
 homepage: https://github.com/xefi/laravel-rest-api-flutter
 
 environment:

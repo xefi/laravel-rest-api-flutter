@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+### Changed
+
+- Instruction fields now use `name` / `value` keys to match Laravel Rest API expectations
+
 ## 0.2.1
 
 ### Added

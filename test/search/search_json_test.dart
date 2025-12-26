@@ -12,7 +12,7 @@ void main() {
     });
 
     test('Field: toJson sends explicit null for value', () {
-      final field = InstructionField(field: 'desc', value: null);
+      final field = InstructionField(name: 'desc', value: null);
       final json = field.toJson();
 
       expect(json.containsKey('value'), isTrue);

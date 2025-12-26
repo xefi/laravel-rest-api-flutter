@@ -186,7 +186,7 @@ void main() {
       instructions: [
         Instruction(
           name: "name",
-          fields: [InstructionField(field: "name", value: "value")],
+          fields: [InstructionField(name: "name", value: "value")],
         ),
       ],
       limit: 1,
