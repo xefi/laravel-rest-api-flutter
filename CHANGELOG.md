@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.3
+
+### Changed
+
+- Action value type changed from String to dynamic
+
 ## 0.2.2
 
 ### Changed
