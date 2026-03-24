@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.5
+
+### Changed
+
+- Allow nullable field in aggregrate
+
 ## 0.2.4
 
 ### Changed
