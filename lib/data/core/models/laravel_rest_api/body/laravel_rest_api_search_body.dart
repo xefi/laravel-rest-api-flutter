@@ -178,14 +178,14 @@ class Include {
 class Aggregate {
   final String relation;
   final String type;
-  final String field;
+  final String? field;
   final String? alias;
   final List<Filter>? filters;
 
   Aggregate({
     required this.relation,
     required this.type,
-    required this.field,
+    this.field,
     this.alias,
     this.filters,
   });
@@ -194,7 +194,7 @@ class Aggregate {
     return {
       'relation': relation,
       'type': type,
-      'field': field,
+      if (field != null) 'field': field,
       if (alias != null) 'alias': alias,
       if (filters != null) 'filters': filters!.map((e) => e.toJson()).toList(),
     };
