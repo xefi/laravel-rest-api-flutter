@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.4
+
+### Changed
+
+- Allow adding unlimited attributes in mutate body
+
 ## 0.2.3
 
 ### Changed
